@@ -1,21 +1,23 @@
 #!/bin/bash
 
-for continue != 'Non' in
- do
+#cont='Oui'
 
-  for boucle != 'Oui' 
-    do
+while [ "$cont" != 'Non' ]
+do
 
-      echo "Selectionner un répertoire de travail"
-      read awnser
+  while [ "$reBoucle" != 'Oui' ]
+  do
 
-      RepTravail < $awnser
-      pwd
-      echo "est-ce correct ? [Oui/Non]"
-      read awnser
-      boucle < $awnser
+    echo "Selectionner un répertoire de travail"
+    read answer
 
-    done
+    RepTravail=$answer
+    echo $RepTravail
+    echo "est-ce correct ? [Oui/Non]"
+    read answer
+    reBoucle=$answer
+
+  done
 
 
 #echo "Inserer le CD à copier"
@@ -38,19 +40,20 @@ for continue != 'Non' in
 
 
 
-# fonction wait awnser
+# fonction wait answer
 
-  for boucle != 'Oui'
-    do
+  while [ "$reBoucle" != 'Oui' ]
+  do
 
-      echo "copier un autre CD ? [Oui/Non]"
-      read awnser
+    echo "copier un autre CD ? [Oui/Non]"
+    read answer
 
-      autreCD < $awnser
-      pwd
-      echo "est-ce correct ? [Oui/Non]"
-      read awnser
-      continu < $awnser
+    autreCD=$answer
+    pwd
+    echo "est-ce correct ? [Oui/Non]"
+    read answer
+    cont=$answer
 
-    done
+  done
+done
 EOF
